@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/master_css.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=New+Tegomin&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <img src="https://api.freelogodesign.org/files/96d6c250e55e4b7c9d19007e6086bf4c/thumb/logo_200x200.png?v=637544106140000000" style="float: left;position: absolute;padding-left:0">
+                <div class="container" style="padding-left: 35%;" >
+
+                       <ul class=" nav nav-tabs" >
+                            <li class="nav-item">
+                                <a class="nav-link " href="{% url 'index' %}" >Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'curriculum:standard_list' %}">Curriculum</a>
+                            </li>
+                                {% if user.is_superuser %}
+                                {%endif%}
+                                {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+                            </li>
+                                {% else %}
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{% url 'user_login' %}">Login</a>
+                            </li>
+                            <li class="nav-item " >
+                                <a class="nav-link" href="{% url 'register' %}">Register</span> </a>
+                            </li>
+                                {% endif %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                            </li>
+                        </ul>
+                      </div>
+                </div>
+              </nav>
+          {% block image_block %}
+          {% endblock %}
+
+
+    <div class="container">
+        {%block content%}
+        {%endblock%}
+    </div>
+
+    <footer class="page-footer" style="background-color:#b2ebf2;">
+      <div class="container">
+        <div class="row mt-4" class="lead" style="font-family:'New Tegomin', serif;">
+                  <div class="col-md-4 mt-4">
+
+                            <h3>About Us</h3> <br>
+                            <h5 class="lead" style="font-family:'New Tegomin', serif;">Our goal is to learn the next generation of creative professionals for a future in any industry.</h5>
+                  </div>
+                  <div class="col-md-4 mt-4">
+                            <h3>Side Corner</h3>
+                        <ul>
+
+                            <li>High-quality video & audio delivery</li>
+                            <li>Study Matrial</li>
+                            <li>Pdf HandWritten Notes</li>
+                            <li> PPT's </li>
+                        </ul>
+                  </div>
+                  <div class="col-md-4 mt-4">
+                            <h3>Contact Us</h3>
+                            <ul>
+                              <li>Address: Sri Ganganagar, Rajasthan, India</li>
+                              <li>rohitkucheria16@gmail.com</li>
+                              <li>9351163747</li>
+                            </ul>
+                  </div>
+        </div>
+        <div class="footer-copyright text-center py-3">
+            <p class="copy-right">Copyright &copy; 2021 <a href="#">Your Site</a> | Designed By : <a href="https://github.com/ROHITKUCHERIA">Rohit Kucheria</a>, All rights reserved. </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
