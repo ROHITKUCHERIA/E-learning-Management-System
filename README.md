@@ -1,5 +1,5 @@
 # E-learning Management System
-==
+
 The main purpose is to develop a web platform named “E-College” which will aim to
 help students to get all resources & study Matrial of every course available. It will
 also give the “E-Notes”, “PPT’s” and “Video Lactures “ facility.
